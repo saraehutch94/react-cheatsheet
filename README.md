@@ -233,7 +233,7 @@ export default Footer;
 import Footer from './components/Footer';
 ```
 
-##### Injecting JavaScript code into JSX of component
+#### Injecting JavaScript code into JSX of component
 
 - If you wanted to inject JavaScript code into your JSX, you can use curly braces. For example, let's say we wanted to add the current year to our footer:
 
