@@ -1,3 +1,2 @@
 ## React Cheatsheet
-___
 
