@@ -2,7 +2,7 @@
 
 *React DevTools for Google Chrome will help inspecting your component state + JSX code*
 
-#### What is React?
+### What is React?
 
 - A toolkit that allows you to build the part of the website that users see and interact with.
 - React is a JavaScript library (think of jQuery)
@@ -14,7 +14,7 @@
 
 ---
 
-#### React in code
+### React in code
 
 - React is written in JavaScript
 - Uses special language called **JSX** (HTML-JavaScript hybrid / HTML-esque syntax for React) - helps define structure of DOM using familiar HTML syntax
@@ -22,7 +22,7 @@
 
 ---
 
-#### Start React Application
+### Start React Application
 
 ```
 npx create-react-app hello-world
@@ -34,7 +34,7 @@ npx create-react-app hello-world
 
 ---
 
-#### React File System
+### React File System
 
 - Gives us local gitignore file
 - Initialize Git repo for us
@@ -47,7 +47,7 @@ npx create-react-app hello-world
 
 ---
 
-#### Why React?
+### Why React?
 - React gives us the ability to create a **SPA - single page application**
 - Only one HTML document gets served to the browser
 - Once React is rendered to browser, the JavaScript begins to run + takes over
@@ -56,13 +56,13 @@ npx create-react-app hello-world
 
 ---
 
-#### Run your React app
+### Run your React app
 
 `npm start` --> runs React app on browser, will pop up automatically in browser
 
 ---
 
-#### App.js
+### App.js
 
 - Everything you will see in the browser at the start of running the React app (React logo spinning, etc.)
 - You can take everything out of this App.js component (only take code out of the `div` with the class of 'App')
@@ -85,7 +85,7 @@ function App() {
 - You will see a bunch of options. Type React and you will see **JavaScript React**
 - You may need to close VSCode tab and re-open it for it to start working again
 
-#### React Components
+### React Components
 
 - React components (ex: `<App />`) are expressed as JavaScript functions, as seen in the codeblock above
 - You can use function declaration (above) or expression (arrow function) syntaxes
@@ -154,7 +154,9 @@ function App() {
 - Each JSX is it's own function that return the resulting HTML you see in the browser (called **built-in components**)
 - `<App />` is defined as a **user-defined component**
 
-#### React Tic Tac Toe
+---
+
+### React Tic Tac Toe
 
 - This follow along will help with practicing the concepts and tools of React
 - Start with adding this to `App.js`:
@@ -167,7 +169,7 @@ function App() {
 }
 ```
 
-##### Start creating components + importing them
+#### Start creating components + importing them
 
 - We want to create a separate folder to put all of our React components in, such as the nav bar, main area, etc.
 - Within the **src** folder, add a folder called **components**
