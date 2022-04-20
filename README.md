@@ -209,7 +209,9 @@ function App() {
 
 - *Hint:* in VSCode, if press **command** and hover over your components (`<Header />`, `<Footer />`, etc.), you will get a link you can click on to head to that component's code file
 
-#### Injecting JavaScript code into JSX of component
+---
+
+### Injecting JavaScript code into JSX of component
 
 - If you wanted to inject JavaScript code into your JSX, you can use curly braces. For example, let's say we wanted to add the current year to a footer:
 
@@ -219,7 +221,9 @@ function App() {
 </footer>
 ```
 
-#### Component Props
+---
+
+### Component Props
 
 - **Props** (also called **JSX attributes**) are used to transmit or provide data to our components
 - They resemble HTML attributes and can be named whatever you want:
