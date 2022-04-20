@@ -156,34 +156,27 @@ function App() {
 
 ---
 
-### React Tic Tac Toe
+### React Components
 
-- This follow along will help with practicing the concepts and tools of React
-- Start with adding this to `App.js`:
+#### Creating, exporting + importing
+
+- We want to create a separate folder to put all of our React components in, such as the nav bar, main area, etc.
+- Within the **src** folder, add a folder called **components**
+- Add all your component files to this folder
+- A common convention when it comes to naming files and components in React is to capitalize your component file names (ex: Header.js) as well as the components themselves (ex: `function Header`)
+- Add your component function within the file, like this:
 
 ```
-function App() {
+function Header() {
     return (
-        <h1>React Tic Tac Toe</h1>
+        <header>
+            <h1>Header Text/Content</h1>
+        </header>
     );
 }
 ```
 
-#### Start creating components + importing them
-
-- We want to create a separate folder to put all of our React components in, such as the nav bar, main area, etc.
-- Within the **src** folder, add a folder called **components**
-- Within this folder, add a file called **Header.js**
-- A common convention when it comes to naming files and components in React is to capitalize your component file names (ex: Header.js) as well as the components themselves (ex: `function Header`)
-- Within the `Header` component, add this:
-
-```
-function Header() {
-    return <h1>Header</h1>
-}
-```
-
-- We want to require this **Header** component in other files, we want to export it. Add this to the bottom underneath the **Header** component function:
+- We want to require our components in other files, we want to **export** it. Export your components below your component function call like this:
 
 ```
 export default Header;
@@ -195,50 +188,82 @@ export default Header;
 export { Header, etc... };
 ```
 
-- Now we want to import this **Header** component into the **App** component:
+- To import your exported components, we want to add the import statement to the component where you want it to be rendered to the DOM (for example, the **App** component):
 
 ```
 import Header from './components/Header';
 ```
 
 - Whenever we are rendering components, we need to write them out inside a JSX fragment and use the capitalization convention mentioned above; and this is a self-closing tag, so we need to add the backslash and closing carrot
-- Writing this out is basically like running the **Header** function, like this: `Header()`
-- Render **Header** component inside **App** component:
+- Writing this out is basically like invoking a function, like this: `Header()`:
 
 ```
 function App() {
     return (
-        <Header />
+        <>
+            <Header />
+        </>
     );
 }
 ```
 
-- Do the same steps for a **Footer** component:
-
-```
-function Footer() {
-    return (
-        <footer>
-            <p>Copyright &copy; All Rights Reserved</p>
-        </footer>
-    );
-}
-
-export default Footer;
-```
-
-- And don't forget to import the new **Footer** component into the **App** component:
-
-```
-import Footer from './components/Footer';
-```
+- *Hint:* in VSCode, if press **command** and hover over your components (`<Header />`, `<Footer />`, etc.), you will get a link you can click on to head to that component's code file
 
 #### Injecting JavaScript code into JSX of component
 
-- If you wanted to inject JavaScript code into your JSX, you can use curly braces. For example, let's say we wanted to add the current year to our footer:
+- If you wanted to inject JavaScript code into your JSX, you can use curly braces. For example, let's say we wanted to add the current year to a footer:
 
 ```
 <footer>
     <p>Copyright &copy; All Rights Reserved { new Date().getFullYear() } </p>
 </footer>
 ```
+
+#### Component Props
+
+- **Props** (also called **JSX attributes**) are used to transmit or provide data to our components
+- They resemble HTML attributes and can be named whatever you want:
+- Example below: The `whichPlayer` prop is added to each `<Player />` to determine which player is X and which player is O
+
+```
+function App() {
+    return (
+        <>
+            <Header />
+            <Player whichPlayer="X" />
+            <Player whichPlayer="O" />
+            <Footer />
+        </>
+    )
+}
+```
+
+- To access these props within the component you are passing them to, you add `props` to your component function as a parameter
+- You can access these props within the function code by utilizing curly braces (inserting JS into JSX) and then accessing the prop name by using dot notation on the passed down the props argument:
+
+```
+function Player(props) {
+    return (
+        <div>
+            <h2>Player: { props.whichPlayer }</h2>
+            <h3>Wins: { props.whichPlayer }</h3>
+        </div>
+    );
+}
+```
+
+#### More on Props
+
+- **Props** are passed from **parent component to child component** - never the other way around
+- React data flow is unidirectional and can only be passed down --> data can never be directly passed from child to parent or from sibling to sibling
+- Props are organized into a single object within the child component, this is why we used dot notation to access the prop attributes
+- **Props are immutable** --> they cannot be assigned a new value within the child component receiving the prop
+- Props are written in a `name=value` format, similar to HTML attributes
+- If you create props to pass down to a component, you can view the props in your React DevTools. You will see that the prop has been turned into an object, with the key being the name of the prop and the value being the value you gave the attribue/prop (`key: value` pairs):
+
+```
+{
+    title: 'Santorini',
+}
+```
+
